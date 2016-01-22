@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact List </title>
+  <title>mytodolist </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,19 +10,21 @@
 
   <h1>To Do List</h1>
   <div class = 'container'>
-  <form id='newContactForm'>
-        <label for="usr">To Do List: </label>
-        <div class="input-group">
-          <input type="text" class="form-control" id='myInput'  required>
-        </div>
-        <div class="form-group col-xs-4 date">
+    <form id='newContactForm'>
+      <label for="usr">To Do List: </label>
+      <div class="input-group">
+        <input type="text" class="form-control" id='myInput'  required>
+      </div>
+      <div class="form-group col-xs-4 date">
         <label for="usr">Date:</label>
         <input type="date" class="form-control" id="date">
       </div>
-      <button class="btn btn-primary pull-right add ">Add</button>
-  </form>
-      
-    <table class="table" id= 'myBigTable'>
+      <div class="topper">
+        <button class="btn btn-primary pull-right add ">Add</button>
+      </div>
+    </form>
+    
+    <table class="table" id= 'wholeTable'>
       <thead>
         <tr>
           <th class = 'task'>Task</th>
@@ -31,14 +33,13 @@
           <th class = 'delete'> Delete</th>
         </tr>
       </thead>
-      <tbody id= 'bigBoy'>
+      <tbody id= 'topHeader'>
         <tr id ='template'>
           <td class = 'tTask'></td>
-          <td class = 'tdue'></td>
-          <td class = 'tcomplete'></td>
+          <td class = 'whatdue'></td>
           <td class = 'tcheckbox'>
             <label class="checkbox-inline">
-              <input type="checkbox" id="inlineCheckbox1" value="option1"> Complete
+              <input type="checkbox" class='toggle' value="option1"> Complete
             </label>
           </td>
           <td class = 'tDelete'>

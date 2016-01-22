@@ -8,3 +8,17 @@ body{
 #myinput{
 	width: 1150px;
 }
+
+.date{
+	position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 1px;
+}
+
+.topper{
+	margin: left;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 1px;
+}

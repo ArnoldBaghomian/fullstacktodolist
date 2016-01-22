@@ -2,26 +2,25 @@
 
 var PORT = 4000;
 
-// bring in dependencies
 var fs = require('fs');
 var express = require('express');
 var app = express();
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-// configure general middleware
+
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// route definitions
+
 app.get('/', (req, res) => {
   var html = fs.readFileSync('./index.html').toString();
   res.send(html);
 });
 
-app.get('/items', (req, res, next) => {
+app.get('/stuff', (req, res, next) => {
   fs.readFile('./list.json', (err, data) => {
     if (err) return res.status(400).send(err);
     var arr = JSON.parse(data);
@@ -29,7 +28,7 @@ app.get('/items', (req, res, next) => {
   });
 });
 
-app.post('/items/add', (req, res, next) => {
+app.post('/stuff/add', (req, res, next) => {
   fs.readFile('./list.json', (err, data) => {
     if (err) return res.status(400).send(err);
     var arr = JSON.parse(data);
@@ -40,12 +39,12 @@ app.post('/items/add', (req, res, next) => {
     arr.push({"item": item, "date": date, "complete": false});
     fs.writeFile('./list.json', JSON.stringify(arr), (err, data) => {
       if (err) return res.status(400).send(err);
-      res.send([{"item": item, "date": date}]); // TODO could be object
+      res.send([{"item": item, "date": date}]); 
     });
   })
 });
 
-app.post('/items/delete', (req, res, next) => {
+app.post('/stuff/delete', (req, res, next) => {
   fs.readFile('./list.json', (err, data) => {
     if (err) return res.status(400).send(err);
     var arr = JSON.parse(data);
@@ -58,7 +57,7 @@ app.post('/items/delete', (req, res, next) => {
   })
 })
 
-app.post('/items/toggle', (req, res, next) => {
+app.post('/stuff/toggle', (req, res, next) => {
   fs.readFile('./list.json', (err, data) => {
     if (err) return res.status(400).send(err);
     var arr = JSON.parse(data);
@@ -75,7 +74,6 @@ app.post('/items/toggle', (req, res, next) => {
   })
 })
 
-// spin up server
 app.listen(PORT, () => {
   console.log('Express server listening on port', PORT)
 });
