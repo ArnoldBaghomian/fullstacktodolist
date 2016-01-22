@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact List </title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>To Do List</h1>
+  <div class = 'container'>
+  <form id='newContactForm'>
+        <label for="usr">To Do List: </label>
+        <div class="input-group">
+          <input type="text" class="form-control" id='myInput'  required>
+        </div>
+        <div class="form-group col-xs-4 date">
+        <label for="usr">Date:</label>
+        <input type="date" class="form-control" id="date">
+      </div>
+      <button class="btn btn-primary pull-right add ">Add</button>
+  </form>
+      
+    <table class="table" id= 'myBigTable'>
+      <thead>
+        <tr>
+          <th class = 'task'>Task</th>
+          <th class = 'due'>Due</th>
+          <th class = 'complete'>Is Complete</th>
+          <th class = 'delete'> Delete</th>
+        </tr>
+      </thead>
+      <tbody id= 'bigBoy'>
+        <tr id ='template'>
+          <td class = 'tTask'></td>
+          <td class = 'tdue'></td>
+          <td class = 'tcomplete'></td>
+          <td class = 'tcheckbox'>
+            <label class="checkbox-inline">
+              <input type="checkbox" id="inlineCheckbox1" value="option1"> Complete
+            </label>
+          </td>
+          <td class = 'tDelete'>
+            <button type="button" class="btn btn-danger deleteButton">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="http://momentjs.com/downloads/moment.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/3.10.1/lodash.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+  </html>
